@@ -1,3 +1,2 @@
 RewriteEngine on
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteRule . index.php [L]

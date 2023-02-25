@@ -1,6 +1,9 @@
 <?php
-
-ini_set('display_errors', 1);
+/*
+ * @author       Kostadin Bashev | Webcode Ltd.
+ * @copyright    Copyright (c) 2023 Webcode Ltd. (https://webcode.bg/)
+ * @license      http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
 
 header('Content-type: application/json');
 
@@ -150,12 +153,12 @@ function paginate($data, $page, $perPage): array
     return array_slice($data, $offset, $perPage, true);
 }
 
-function convertToDate($timestamp)
+function convertToDate($timestamp): string
 {
     return date("Y-m-d\TH:i:s.u\Z", round($timestamp/1000));
 }
 
-function getTaskIds($space)
+function getTaskIds($space): array
 {
     // Make storage this if not exists.
     if (!is_dir(STORAGE_DIR)) {

@@ -1,4 +1,9 @@
 <?php
+/*
+ * @author       Kostadin Bashev | Webcode Ltd.
+ * @copyright    Copyright (c) 2023 Webcode Ltd. (https://webcode.bg/)
+ * @license      http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
 
 class Clickup
 {
