@@ -38,22 +38,29 @@ Example for vhost file.
 
 ## PHP Storm Configuration
 ### Configure Tracking Server
-1. Go to `File Settings (Ctrl + Alt + S) - Tasks - Servers`
+1. Go to `File Settings (Ctrl + Alt + S) - Tasks - Servers`.
 2. Click on `+` and choose **Gitlab** Server.
-3. Add server address configured above (http://track.example.com).
-4. Put **ClickUp** API Key (Menu - Integrations - Custom Apps). API Key starts with "pk_"
-5. Choose Project (ClickUp Space) from which will be fetched tasks.
+
+![image](https://user-images.githubusercontent.com/1854269/221335335-3323e7b6-5fea-4188-bb1e-f0ee9f0746e4.png)
+
+4. Add server address configured above (http://track.example.com).
+5. Put **ClickUp** API Key (Menu - Integrations - Custom Apps). API Key starts with "pk_".
+6. Choose Project (ClickUp Space) from which will be fetched tasks.
+
+![image](https://user-images.githubusercontent.com/1854269/221335367-3038ab14-ce3e-4dc6-8d4c-791763ae6bbb.png)
 
 ### Enable Time Tracking
-1. Go to `File - Settings (Ctrl + Alt + S) - Tasks - Time Tracking`
-2. Check Enable Time Traking
+1. Go to `File - Settings (Ctrl + Alt + S) - Tasks - Time Tracking`.
+2. Check Enable Time Traking.
+
+![image](https://user-images.githubusercontent.com/1854269/221335381-9e88452e-b326-47fa-8d80-9da67a46ffb4.png)
 
 ### Track Time
 When Time Tracking feature is enabled you will see additional window form which you can get list of tasks.
 
 ## Known issues
 - Current version not works with Folders in ClickUp Spaces.
-- Comments from Tracking windows are not added to ClickUp
+- Comments from Tracking windows are not added to ClickUp.
 
 # Have a nice Tracking :)
 
