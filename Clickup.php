@@ -120,7 +120,7 @@ class Clickup
                 if (isset($spaces->spaces)) {
                     foreach ($spaces->spaces as $space) {
                         $space->team_id = $userTeam;
-                        $userSpaces[$space->id] = $space;
+                        $userSpaces[convertToInt($space->id)] = $space;
                     }
                 }
             }
@@ -144,7 +144,7 @@ class Clickup
         return $this->spaceId;
     }
 
-    private function getCurrentSpace(): ?object
+    public function getCurrentSpace(): ?object
     {
         if (empty($this->spaces)) {
             $this->getSpaces();
@@ -222,28 +222,24 @@ class Clickup
         return $this->tasks;
     }
 
-    public function addTracking($taskId, $duration)
+    public function addTracking($teamId, $taskId, $duration)
     {
-        if ($space = $this->getCurrentSpace()) {
-            $tracking = [
-                'description' => 'Automatically tracked by PHPStorm',
-                'tags'        => [
-                    [
-                        'name'   => 'Development',
-                        'tag_bg' => '#BF55EC',
-                        'tag_fg' => '#BF55EC'
-                    ]
-                ],
-                'start'       => round(microtime(true)*1000) - $duration,
-                'billable'    => true,
-                'duration'    => $duration,
-                'assignee'    => $this->user->id,
-                'tid'         => $taskId
-            ];
+        $tracking = [
+            'description' => 'Automatically tracked by PHPStorm',
+            'tags'        => [
+                [
+                    'name'   => 'Development',
+                    'tag_bg' => '#BF55EC',
+                    'tag_fg' => '#BF55EC'
+                ]
+            ],
+            'start'       => round(microtime(true)*1000) - $duration,
+            'billable'    => true,
+            'duration'    => $duration,
+            'assignee'    => $this->user->id,
+            'tid'         => $taskId
+        ];
 
-            return $this->apiCall(sprintf('team/%s/time_entries', $space->team_id), $tracking);
-        }
-
-        return false;
+        return $this->apiCall(sprintf('team/%s/time_entries', $teamId), $tracking);
     }
 }
