@@ -1,7 +1,7 @@
 # JetBrains Time Tracking for ClickUp (Server)
-Enable Time Tracking of JetBrains (PHPStorm, WebStorm) with Clickup (using Gitlab endpoints).
+Enable Time Tracking of JetBrains (PHPStorm, WebStorm) with ClickUp (using Gitlab endpoints).
 
-This is some kind of "workaround" to track time directly from PHP Storm to ClickUp. We are using native JetBrains integration with Gitlab and rewrite them for ClickUp.
+This is some kind of workaround with which you are able to track your development time directly from your IDE (PHPStorm) to ClickUp. Current setup is a server on which we capturing native JetBrains integration with Gitlab requests and serve ClickUp data (spaces and tasks) in Gitlab format. Tracking data is pushed to ClickUp with capturing data which is pushed to "fake" Gitlab server.
 
 ## Requirements
 - PHP >= 7.4 (not tested with PHP8.x, but code is compatible)
