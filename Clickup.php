@@ -116,7 +116,7 @@ class Clickup
         if (empty($this->spaces)) {
             $userSpaces = [];
             foreach ($this->getTeams() as $userTeam) {
-                $spaces = $this->apiCall(sprintf('team/%s/space', $userTeam));
+                $spaces = $this->apiCall(sprintf('team/%s/space?archived=false', $userTeam));
                 if (isset($spaces->spaces)) {
                     foreach ($spaces->spaces as $space) {
                         $space->team_id = $userTeam;

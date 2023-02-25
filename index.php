@@ -29,6 +29,12 @@ if (preg_match('@^/api/v4/(\w+)(/((\w+)%2F)?(\d+)/(issues))?(/(\d+)/(add_spent_t
         exit;
     }
 
+    // Workaround to make initial validaton.
+    if ($matches[1] === 'issues') {
+        echo json_encode([]);
+        exit;
+    }
+
     // Projects
     if (count($matches) === 2 && $matches[1] === 'projects') {
         $spaces = paginate($clickup->getSpaces(), $page, $perPage);
