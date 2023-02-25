@@ -1,17 +1,17 @@
-# JetBrains Time Tracking for ClickUp
+# JetBrains Time Tracking for ClickUp (Server)
 Enable Time Tracking of JetBrains (PHPStorm, WebStorm) with Clickup (using Gitlab endpoints).
 
 This is some kind of "workaround" to track time directly from PHP Storm to ClickUp. We are using native JetBrains integration with Gitlab and rewrite them for ClickUp.
 
-## Reqiurements
-- PHP >= 7.4 (not tested with PHP8.x, but code is comptabile)
+## Requirements
+- PHP >= 7.4 (not tested with PHP8.x, but code is compatible)
 - Apache >= 2.4 (not tested with nginx)
 
 ## Apache vhost configuration
-In Virtual Host `AllowEncodedSlashes` need to be enabled.
-Puth this line between `<VirualHost>` and `</VirtualHost>`
+Apache Directive `AllowEncodedSlashes` need to be enabled.
+Put this line `AllowEncodedSlashes NoDecode` somewhere between `<VirualHost>` and `</VirtualHost>`
 
-Example for vhost file.
+Virtual Host example file:
 ```
 <VirtualHost *:80>
     ServerName track.example.com
@@ -51,7 +51,7 @@ Example for vhost file.
 
 ### Enable Time Tracking
 1. Go to `File - Settings (Ctrl + Alt + S) - Tasks - Time Tracking`.
-2. Check Enable Time Traking.
+2. Check Enable Time Tracking.
 
 ![image](https://user-images.githubusercontent.com/1854269/221335381-9e88452e-b326-47fa-8d80-9da67a46ffb4.png)
 
