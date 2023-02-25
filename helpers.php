@@ -5,22 +5,47 @@
  * @license      http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
+/**
+ * Paginate results same as gitlab.
+ *
+ * @param $data
+ * @param $page
+ * @param $perPage
+ * @return array
+ */
 function paginate($data, $page, $perPage): array
 {
     $offset = ($page - 1)*$perPage;
     return array_slice($data, $offset, $perPage, true);
 }
 
-function convertToInt($value)
+/**
+ * Workaround for long int ids.
+ *
+ * @param $value
+ * @return int
+ */
+function convertToInt($value): int
 {
-    return $value > 2147483647 ? -substr($value, 0, 9) : $value;
+    return $value > 2147483647 ? - (int)substr($value, 0, 9) : $value;
 }
 
+/**
+ * Convert Unixtimestamp to Gitlab format
+ *
+ * @param $timestamp
+ * @return string
+ */
 function convertToDate($timestamp): string
 {
     return date("Y-m-d\TH:i:s.u\Z", round($timestamp/1000));
 }
 
+/**
+ * Get Original Task IDs from local text storage.
+ *
+ * Task IDs need to be int, but in clickup they are string and we need to convert them.
+ */
 function getTaskIds($space): array
 {
     // Make storage this if not exists.

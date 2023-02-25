@@ -71,14 +71,6 @@ class Clickup
     }
 
     /**
-     * @return object
-     */
-    public function getUser(): object
-    {
-        return $this->user;
-    }
-
-    /**
      * Get All Teams (Companies) on which user is added.
      *
      * @return array
