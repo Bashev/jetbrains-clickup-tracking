@@ -59,8 +59,7 @@ Example for vhost file.
 When Time Tracking feature is enabled you will see additional window form which you can get list of tasks.
 
 ## Known issues
-- Current version not works with Folders in ClickUp Spaces.
-- Comments from Tracking windows are not added to ClickUp.
+- Comments from Tracking window are not added to ClickUp.
 
 # Have a nice Tracking :)
 

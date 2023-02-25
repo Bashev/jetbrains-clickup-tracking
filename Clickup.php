@@ -153,6 +153,19 @@ class Clickup
         return $this->spaces[$this->getSpaceId()] ?? null;
     }
 
+    private function getFolders(): array
+    {
+        $spaceFolders = [];
+        $folders = $this->apiCall(sprintf('space/%s/folder', $this->getSpaceId()));
+        if (isset($folders->folders)) {
+            foreach ($folders->folders as $folder) {
+                $spaceFolders[] = $folder;
+            }
+        }
+
+        return $spaceFolders;
+    }
+
     /**
      * Get Lists related to user spaces.
      *
@@ -161,6 +174,15 @@ class Clickup
     private function getLists(): array
     {
         $userLists = [];
+
+        if ($folders = $this->getFolders()) {
+            foreach ($folders as $folder) {
+                foreach ($folder->lists as $list) {
+                    $userLists[] = $list->id;
+                }
+            }
+        }
+
         $lists = $this->apiCall(sprintf('space/%s/list', $this->getSpaceId()));
         if (isset($lists->lists)) {
             foreach ($lists->lists as $list) {
